@@ -56,7 +56,7 @@ pipeline {
                     git config user.email "nishantp1337@gmail.com"
                     git config user.name "Nishant Pansuriya"
                     BUILD_NUMBER=${BUILD_NUMBER}
-                    imageTag=$(grep -oP '(?<=spring-docker:)[^ ]+' deployment.yml)
+                    imageTag=$(grep -oP '(?<=ultimate-cicd:)[^ ]+' deployment.yml)
                     sed -i "s/ultimate-cicd:${imageTag}/ultimate-cicd:${BUILD_NUMBER}/" deployment.yml
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
